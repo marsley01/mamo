@@ -6,6 +6,8 @@ import Hero from '@/components/Hero';
 import CategoriesStrip from '@/components/CategoriesStrip';
 import FeaturedProducts from '@/components/FeaturedProducts';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Mamo Collections | Premium Bedding in Nairobi',
   description: 'Luxury mattresses, bedsheets, duvets, pillows, and blankets delivered across Nairobi. Sleep better tonight with Mamo Collections.',

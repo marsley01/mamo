@@ -9,6 +9,8 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+export const dynamic = 'force-dynamic';
+
 async function getProduct(slug: string): Promise<Product | null> {
   const { data, error } = await supabase
     .from('products')

@@ -4,6 +4,8 @@ import Image from 'next/image';
 
 import DeleteProductButton from '@/components/DeleteProductButton';
 
+export const dynamic = 'force-dynamic';
+
 export default async function ProductsPage() {
   const { data: products } = await supabase
     .from('products')
