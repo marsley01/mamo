@@ -1,23 +1,6 @@
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { redirect } from 'next/navigation';
-
-export default async function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const { data: { session } } = await supabase.auth.getSession();
-  
-  if (!session) {
-    redirect('/login');
-  }
-
-  const menuItems = [
-    { label: 'Overview', href: '/dashboard' },
-    { label: 'Products', href: '/dashboard/products' },
-  ];
-
 import SignOutButton from '@/components/SignOutButton';
 
 export default async function DashboardLayout({
