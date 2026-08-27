@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: 'Playfair Display', serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #2C2C2C;
+  background: #F5EFE6;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair);
+}
+
+::selection {
+  background-color: #C9A96E;
+  color: #1A1A2E;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-gold text-navy font-semibold py-3 px-8 rounded-none transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg hover:shadow-gold/30;
+  }
+
+  .btn-gold-outline {
+    @apply border-2 border-gold text-gold font-semibold py-3 px-8 rounded-none transition-all duration-300 hover:bg-gold hover:text-navy;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .product-card {
+    @apply bg-white rounded-none overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .category-card {
+    @apply relative aspect-square bg-white overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+}
