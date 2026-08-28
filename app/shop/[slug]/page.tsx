@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { supabase, Product } from '@/lib/supabase';
+import { createClient } from '@/utils/supabase/server';
+import { Product } from '@/lib/supabase';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductDetailClient from './ProductDetailClient';
@@ -12,6 +13,7 @@ interface PageProps {
 export const dynamic = 'force-dynamic';
 
 async function getProduct(slug: string): Promise<Product | null> {
+  const supabase = createClient();
   const { data, error } = await supabase
     .from('products')
     .select('*')
@@ -23,6 +25,7 @@ async function getProduct(slug: string): Promise<Product | null> {
 }
 
 async function getRelatedProducts(category: string, excludeId: string): Promise<Product[]> {
+  const supabase = createClient();
   const { data, error } = await supabase
     .from('products')
     .select('*')

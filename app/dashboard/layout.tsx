@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
 import SignOutButton from '@/components/SignOutButton';
 
@@ -8,9 +8,10 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { data: { session } } = await supabase.auth.getSession();
-  
-  if (!session) {
+  const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+   
+  if (!user) {
     redirect('/login');
   }
 
@@ -20,10 +21,10 @@ export default async function DashboardLayout({
   ];
 
   return (
-    <div className="flex min-h-screen bg-cream">
-      <aside className="w-64 bg-navy text-cream flex flex-col">
+    <div className="flex min-h-screen bg-background">
+      <aside className="w-64 bg-slate-950 text-slate-300 flex flex-col border-r border-slate-800">
         <div className="p-6">
-          <Link href="/dashboard" className="font-playfair text-2xl font-semibold text-gold">
+          <Link href="/dashboard" className="font-heading text-2xl font-semibold text-primary">
             Mamo Admin
           </Link>
         </div>
@@ -32,7 +33,7 @@ export default async function DashboardLayout({
             <Link
               key={item.href}
               href={item.href}
-              className="block py-2 px-4 rounded hover:bg-gold/20 hover:text-gold transition-colors"
+              className="block py-2 px-4 rounded hover:bg-primary/20 hover:text-primary transition-colors"
             >
               {item.label}
             </Link>

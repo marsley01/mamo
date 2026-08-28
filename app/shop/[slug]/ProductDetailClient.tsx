@@ -19,7 +19,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
         {/* Image Gallery */}
         <div className="space-y-4">
-          <div className="relative aspect-square overflow-hidden bg-white shadow-sm">
+          <div className="relative aspect-square overflow-hidden bg-surface shadow-sm">
             <Image
               src={selectedImage}
               alt={product.name}
@@ -35,8 +35,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
                 <button
                   key={index}
                   onClick={() => setSelectedImage(image)}
-                  className={`relative aspect-square overflow-hidden bg-white ${
-                    selectedImage === image ? 'ring-2 ring-gold' : 'hover:opacity-80'
+                  className={`relative aspect-square overflow-hidden bg-surface ${
+                    selectedImage === image ? 'ring-2 ring-primary' : 'hover:opacity-80'
                   }`}
                 >
                   <Image
@@ -55,18 +55,18 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
         {/* Product Info */}
         <div className="flex flex-col">
           <div className="mb-6">
-            <span className="text-sm font-medium text-gold uppercase tracking-wider mb-2 block">
+            <span className="text-sm font-medium text-primary uppercase tracking-wider mb-2 block">
               {product.category}
             </span>
-            <h1 className="font-playfair text-4xl lg:text-5xl font-medium text-navy mb-4">
+            <h1 className="font-heading text-4xl lg:text-5xl font-medium text-textPrimary mb-4">
               {product.name}
             </h1>
-            <p className="font-playfair text-3xl font-semibold text-navy">
+            <p className="font-heading text-3xl font-semibold text-textPrimary">
               KES {product.price.toLocaleString()}
             </p>
           </div>
 
-          <div className="prose prose-navy max-w-none mb-8 text-text/80">
+          <div className="prose prose-invert max-w-none mb-8 text-textSecondary">
             <p>{product.description || 'No description available for this item.'}</p>
           </div>
 
@@ -74,8 +74,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
             <span
               className={`px-4 py-2 text-sm font-medium border ${
                 product.in_stock
-                  ? 'bg-green-50 border-green-200 text-green-700'
-                  : 'bg-red-50 border-red-200 text-red-700'
+                  ? 'bg-emerald-400/10 border-emerald-400/30 text-emerald-400'
+                  : 'bg-red-400/10 border-red-400/30 text-red-400'
               }`}
             >
               {product.in_stock ? 'In Stock' : 'Out of Stock'}
@@ -94,8 +94,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (
-        <section className="mt-20 border-t border-gold/20 pt-20">
-          <h2 className="font-playfair text-3xl font-medium text-navy mb-12">Related Products</h2>
+        <section className="mt-20 border-t border-surfaceHover pt-20">
+          <h2 className="font-heading text-3xl font-medium text-textPrimary mb-12">Related Products</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {relatedProducts.map((p) => (
               <ProductCard key={p.id} product={p} />

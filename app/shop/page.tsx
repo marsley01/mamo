@@ -7,7 +7,7 @@ export default function ShopPage() {
   return (
     <>
       <Header />
-      <main id="main-content" className="pt-16 lg:pt-20 min-h-screen bg-cream">
+      <main id="main-content" className="pt-16 lg:pt-20 min-h-screen bg-background">
         <Suspense fallback={<div className="container-custom py-12">Loading...</div>}>
           <ShopClient />
         </Suspense>

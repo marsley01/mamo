@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import { supabase, Product } from '@/lib/supabase';
+import { createClient } from '@/utils/supabase/server';
+import { Product } from '@/lib/supabase';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 async function getFeaturedProducts(): Promise<Product[]> {
+  const supabase = createClient();
   const { data, error } = await supabase
     .from('products')
     .select('*')
@@ -30,6 +32,7 @@ async function getFeaturedProducts(): Promise<Product[]> {
 }
 
 async function getCategoryCounts(): Promise<Record<string, number>> {
+  const supabase = createClient();
   const { data, error } = await supabase
     .from('products')
     .select('category')

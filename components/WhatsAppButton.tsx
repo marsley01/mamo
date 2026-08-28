@@ -17,7 +17,7 @@ export default function WhatsAppButton({ productName, price, className = '', chi
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2 btn-gold ${className}`}
+      className={`inline-flex items-center justify-center gap-2 btn-primary ${className}`}
       aria-label={`Order ${productName} via WhatsApp`}
     >
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

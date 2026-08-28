@@ -41,16 +41,16 @@ export default function CategoryCard({ category, count }: CategoryCardProps) {
       className="category-card group"
       aria-label={`Shop ${category}`}
     >
-      <div className="absolute inset-0 bg-navy/5 transition-opacity duration-300 group-hover:bg-navy/10" aria-hidden="true" />
+      <div className="absolute inset-0 bg-slate-950/50 transition-opacity duration-300 group-hover:bg-slate-950/70 active:bg-slate-950/80" aria-hidden="true" />
       <div className="relative z-10 flex flex-col items-center justify-center h-full p-6 text-center">
-        <div className="text-gold mb-4 group-hover:scale-110 transition-transform duration-300">
+        <div className="text-primary mb-4 group-hover:scale-110 active:scale-95 transition-transform duration-300">
           {Icon}
         </div>
-        <h3 className="font-playfair text-xl lg:text-2xl font-medium text-navy mb-1">
+        <h3 className="font-heading text-xl lg:text-2xl font-medium text-textPrimary mb-1">
           {category}
         </h3>
         {count !== undefined && (
-          <p className="text-text/60 text-sm">{count} {count === 1 ? 'product' : 'products'}</p>
+          <p className="text-textSecondary text-sm">{count} {count === 1 ? 'product' : 'products'}</p>
         )}
       </div>
     </Link>

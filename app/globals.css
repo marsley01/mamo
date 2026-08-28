@@ -1,13 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --font-playfair: 'Playfair Display', serif;
-  --font-inter: 'Inter', sans-serif;
-}
 
 * {
   box-sizing: border-box;
@@ -17,23 +10,29 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  text-size-adjust: 100%;
 }
 
 body {
-  color: #2C2C2C;
-  background: #F5EFE6;
-  font-family: var(--font-inter);
+  background: #020617;
+  color: #F8FAFC;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair);
+  font-family: var(--font-outfit);
 }
 
 ::selection {
-  background-color: #C9A96E;
-  color: #1A1A2E;
+  background-color: #6366F1;
+  color: #F8FAFC;
+}
+
+button, a, input, select, textarea {
+  touch-action: manipulation;
 }
 
 @layer utilities {
@@ -43,12 +42,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @layer components {
+  .btn-primary {
+    @apply bg-primary text-textPrimary font-medium py-3 px-8 rounded-md transition-all duration-300 hover:bg-primaryHover hover:shadow-lg hover:shadow-primary/30 active:scale-[0.98];
+  }
+
+  .btn-primary-outline {
+    @apply border-2 border-primary text-primary font-medium py-3 px-8 rounded-md transition-all duration-300 hover:bg-primary hover:text-textPrimary active:scale-[0.98];
+  }
+
   .btn-gold {
-    @apply bg-gold text-navy font-semibold py-3 px-8 rounded-none transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg hover:shadow-gold/30;
+    @apply bg-primary text-textPrimary font-medium py-3 px-8 rounded-md transition-all duration-300 hover:bg-primaryHover hover:shadow-lg hover:shadow-primary/30 active:scale-[0.98];
   }
 
   .btn-gold-outline {
-    @apply border-2 border-gold text-gold font-semibold py-3 px-8 rounded-none transition-all duration-300 hover:bg-gold hover:text-navy;
+    @apply border-2 border-primary text-primary font-medium py-3 px-8 rounded-md transition-all duration-300 hover:bg-primary hover:text-textPrimary active:scale-[0.98];
   }
 
   .container-custom {
@@ -56,10 +63,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .product-card {
-    @apply bg-white rounded-none overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    @apply bg-surface rounded-lg overflow-hidden border border-surfaceHover shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/50 active:scale-[0.99];
   }
 
   .category-card {
-    @apply relative aspect-square bg-white overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    @apply relative aspect-square bg-surface rounded-lg overflow-hidden border border-surfaceHover cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/50 active:scale-[0.97];
   }
 }

@@ -9,9 +9,9 @@ interface CategoriesStripProps {
 
 export default function CategoriesStrip({ counts = {} }: CategoriesStripProps) {
   return (
-    <section className="py-16 bg-white" aria-labelledby="categories-heading">
+    <section className="py-16 bg-surface" aria-labelledby="categories-heading">
       <div className="container-custom">
-        <h2 id="categories-heading" className="font-playfair text-3xl lg:text-4xl font-medium text-navy text-center mb-12">
+        <h2 id="categories-heading" className="font-heading text-3xl lg:text-4xl font-medium text-textPrimary text-center mb-12">
           Shop by Category
         </h2>
 

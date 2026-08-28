@@ -19,7 +19,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
   return (
     <article className="product-card group">
       <Link href={`/shop/${product.slug}`} className="block" aria-label={`View ${product.name}`}>
-        <div className="relative aspect-[4/5] overflow-hidden bg-cream">
+        <div className="relative aspect-[4/5] overflow-hidden bg-background">
           <Image
             src={firstImage}
             alt={`${product.name} - main product image`}
@@ -31,8 +31,8 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
           />
           {!product.in_stock && (
-            <div className="absolute inset-0 bg-navy/70 flex items-center justify-center">
-              <span className="font-playfair text-cream text-lg font-medium px-4 py-2 border-2 border-cream">
+            <div className="absolute inset-0 bg-slate-950/80 flex items-center justify-center">
+              <span className="font-heading text-slate-50 text-lg font-medium px-4 py-2 border-2 border-slate-50">
                 Out of Stock
               </span>
             </div>
@@ -41,20 +41,20 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
 
         <div className="p-4">
           <div className="flex items-center justify-between gap-2 mb-2">
-            <span className="text-xs font-medium text-gold uppercase tracking-wider">
+            <span className="text-xs font-medium text-primary uppercase tracking-wider">
               {product.category}
             </span>
             {product.in_stock && (
-              <span className="text-xs font-medium text-green-600">In Stock</span>
+              <span className="text-xs font-medium text-emerald-400">In Stock</span>
             )}
           </div>
 
-          <h3 className="font-playfair text-lg font-medium text-navy mb-1 line-clamp-1 group-hover:text-gold transition-colors">
+          <h3 className="font-heading text-lg font-medium text-textPrimary mb-1 line-clamp-1 group-hover:text-primary transition-colors">
             {product.name}
           </h3>
 
           <div className="flex items-center justify-between mt-3">
-            <p className="font-playfair text-xl font-semibold text-navy">
+            <p className="font-heading text-xl font-semibold text-textPrimary">
               KES {product.price.toLocaleString()}
             </p>
           </div>
@@ -65,7 +65,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full mt-4 btn-gold text-center py-3 text-sm font-medium"
+        className="block w-full mt-4 btn-primary text-center py-3 text-sm font-medium"
         aria-label={`Order ${product.name} via WhatsApp`}
       >
         Order via WhatsApp

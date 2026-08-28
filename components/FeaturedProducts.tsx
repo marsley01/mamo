@@ -11,10 +11,10 @@ interface FeaturedProductsProps {
 export default function FeaturedProducts({ products }: FeaturedProductsProps) {
   if (products.length === 0) {
     return (
-      <section className="py-20 bg-cream" aria-labelledby="featured-heading">
+      <section className="py-20 bg-background" aria-labelledby="featured-heading">
         <div className="container-custom">
           <div className="text-center py-12">
-            <p className="text-text/60">No products available at the moment.</p>
+            <p className="text-textSecondary">No products available at the moment.</p>
           </div>
         </div>
       </section>
@@ -22,15 +22,15 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
   }
 
   return (
-    <section className="py-20 bg-cream" aria-labelledby="featured-heading">
+    <section className="py-20 bg-background" aria-labelledby="featured-heading">
       <div className="container-custom">
         <div className="flex items-center justify-between mb-12">
-          <h2 id="featured-heading" className="font-playfair text-3xl lg:text-4xl font-medium text-navy">
+          <h2 id="featured-heading" className="font-heading text-3xl lg:text-4xl font-medium text-textPrimary">
             Featured Products
           </h2>
           <Link
             href="/shop"
-            className="hidden sm:inline-flex items-center gap-2 text-gold font-medium hover:text-gold/80 transition-colors"
+            className="hidden sm:inline-flex items-center gap-2 text-primary font-medium hover:text-primaryHover transition-colors"
           >
             View All
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -46,7 +46,7 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
         </div>
 
         <div className="text-center mt-10 sm:hidden">
-          <Link href="/shop" className="btn-gold-outline inline-block">
+          <Link href="/shop" className="btn-primary-outline inline-block">
             View All Products
           </Link>
         </div>

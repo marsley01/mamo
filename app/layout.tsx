@@ -1,5 +1,11 @@
 import type { Metadata, Viewport } from 'next';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
+
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
+const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta' });
 
 export const metadata: Metadata = {
   title: 'Mamo Collections | Premium Bedding in Nairobi',
@@ -28,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#1A1A2E',
+  themeColor: '#020617',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -45,7 +51,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="font-inter antialiased">{children}</body>
+      <body className={`${outfit.variable} ${jakarta.variable} font-body bg-background text-textPrimary antialiased`}>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 export default function NewProductPage() {
   return (
     <div>
-      <h1 className="text-3xl font-playfair text-navy mb-8">Add New Product</h1>
+      <h1 className="text-3xl font-heading text-textPrimary mb-8">Add New Product</h1>
       <ProductForm />
     </div>
   );
